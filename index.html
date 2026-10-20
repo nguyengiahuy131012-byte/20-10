@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiệp Chúc Mừng Ngày Phụ Nữ - 8/3 & 20/10</title>
+    <title>Thiệp Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -45,7 +45,7 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #FFF0F5 0%, #FFD1DC 50%, #FFE4E1 100%);
+            background: linear-gradient(135deg, #FFF0F5 0%, #FFD1DC 40%, #F8BBD0 70%, #FFE4E1 100%);
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -60,15 +60,15 @@
 
         /* Glassmorphism Styles */
         .glass-card {
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.82);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 182, 193, 0.5);
-            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.12);
+            border: 1px solid rgba(255, 182, 193, 0.6);
+            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.15);
         }
 
         .glass-input {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
             border: 2px solid #FFB6C1;
             transition: all 0.3s ease;
@@ -76,7 +76,7 @@
 
         .glass-input:focus {
             border-color: #E91E63;
-            box-shadow: 0 0 15px rgba(233, 30, 99, 0.3);
+            box-shadow: 0 0 18px rgba(233, 30, 99, 0.35);
             outline: none;
         }
 
@@ -90,22 +90,22 @@
             width: 320px;
             height: 220px;
             background-color: #E91E63;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-            box-shadow: 0 15px 35px rgba(194, 24, 91, 0.3);
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+            box-shadow: 0 18px 40px rgba(194, 24, 91, 0.35);
             cursor: pointer;
             transition: transform 0.5s ease;
         }
 
         @media (min-width: 640px) {
             .envelope {
-                width: 440px;
-                height: 290px;
+                width: 450px;
+                height: 300px;
             }
         }
 
         .envelope:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-6px) scale(1.02);
         }
 
         .envelope .flap-top {
@@ -124,9 +124,9 @@
 
         @media (min-width: 640px) {
             .envelope .flap-top {
-                border-left-width: 220px;
-                border-right-width: 220px;
-                border-top-width: 170px;
+                border-left-width: 225px;
+                border-right-width: 225px;
+                border-top-width: 175px;
             }
         }
 
@@ -139,15 +139,15 @@
             border-top: 110px solid transparent;
             border-bottom: 110px solid transparent;
             border-left: 170px solid #EC407A;
-            border-bottom-left-radius: 12px;
+            border-bottom-left-radius: 14px;
             z-index: 3;
         }
 
         @media (min-width: 640px) {
             .envelope .flap-left {
-                border-top-width: 145px;
-                border-bottom-width: 145px;
-                border-left-width: 230px;
+                border-top-width: 150px;
+                border-bottom-width: 150px;
+                border-left-width: 235px;
             }
         }
 
@@ -160,15 +160,15 @@
             border-top: 110px solid transparent;
             border-bottom: 110px solid transparent;
             border-right: 170px solid #F06292;
-            border-bottom-right-radius: 12px;
+            border-bottom-right-radius: 14px;
             z-index: 3;
         }
 
         @media (min-width: 640px) {
             .envelope .flap-right {
-                border-top-width: 145px;
-                border-bottom-width: 145px;
-                border-right-width: 230px;
+                border-top-width: 150px;
+                border-bottom-width: 150px;
+                border-right-width: 235px;
             }
         }
 
@@ -181,16 +181,16 @@
             border-left: 160px solid transparent;
             border-right: 160px solid transparent;
             border-bottom: 120px solid #E91E63;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
             z-index: 3;
         }
 
         @media (min-width: 640px) {
             .envelope .flap-bottom {
-                border-left-width: 220px;
-                border-right-width: 220px;
-                border-bottom-width: 160px;
+                border-left-width: 225px;
+                border-right-width: 225px;
+                border-bottom-width: 165px;
             }
         }
 
@@ -200,12 +200,12 @@
             left: 50%;
             transform: translateX(-50%);
             width: 88%;
-            height: 80%;
+            height: 82%;
             background: #FFF;
-            border-radius: 8px;
+            border-radius: 10px;
             z-index: 2;
             transition: transform 0.7s ease-in-out, opacity 0.5s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
             padding: 15px;
             display: flex;
             flex-direction: column;
@@ -219,13 +219,13 @@
         }
 
         .envelope.open .letter-preview {
-            transform: translateX(-50%) translateY(-140px);
+            transform: translateX(-50%) translateY(-145px);
             z-index: 5;
         }
 
         @media (min-width: 640px) {
             .envelope.open .letter-preview {
-                transform: translateX(-50%) translateY(-180px);
+                transform: translateX(-50%) translateY(-190px);
             }
         }
 
@@ -244,7 +244,7 @@
                 opacity: 0;
             }
             20% {
-                opacity: 0.7;
+                opacity: 0.75;
             }
             100% {
                 transform: translateY(-10vh) rotate(360deg) scale(1.2);
@@ -263,7 +263,7 @@
                 box-shadow: 0 0 15px rgba(233, 30, 99, 0.4);
             }
             100% {
-                box-shadow: 0 0 28px rgba(255, 105, 180, 0.8);
+                box-shadow: 0 0 28px rgba(255, 105, 180, 0.85);
             }
         }
 
@@ -276,35 +276,33 @@
 </head>
 <body class="flex flex-col min-h-screen justify-between relative text-gray-800 antialiased selection:bg-pink-300 selection:text-brand-deep">
 
-    <!-- Background Floating Hearts Canvas / Container -->
+    <!-- Background Floating Hearts Container -->
     <div id="particle-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
 
-    <!-- Audio Player Control (Background Music) -->
+    <!-- Audio Control -->
     <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
-        <button id="music-toggle" class="glass-card w-12 h-12 rounded-full flex items-center justify-center text-brand-pink hover:text-brand-deep hover:scale-110 transition duration-300 shadow-md">
+        <button id="music-toggle" title="Phát / Tắt Nhạc Nền" class="glass-card w-12 h-12 rounded-full flex items-center justify-center text-brand-pink hover:text-brand-deep hover:scale-110 transition duration-300 shadow-md">
             <i id="music-icon" class="fas fa-music text-lg"></i>
         </button>
     </div>
 
-    <!-- Main Content Container -->
+    <!-- Main Content Area -->
     <main class="relative z-10 flex-grow flex items-center justify-center px-4 py-8">
 
         <!-- ==================== SCREEN 1: INPUT NAME ==================== -->
         <section id="screen-input" class="w-full max-w-lg transition-all duration-500 transform">
             <div class="glass-card rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden">
-                <!-- Decorative Top Ribbon -->
                 <div class="absolute -top-12 -right-12 w-28 h-28 bg-gradient-to-br from-brand-light to-brand-pink rounded-full blur-xl opacity-50"></div>
                 
-                <!-- Header Title -->
-                <div class="inline-block p-3 bg-pink-100 rounded-full text-brand-pink mb-4">
-                    <i class="fas fa-heart text-2xl animate-bounce"></i>
+                <div class="inline-flex items-center justify-center px-4 py-1.5 bg-pink-100 rounded-full text-brand-pink font-bold text-xs uppercase tracking-widest mb-3">
+                    <i class="fas fa-heart text-xs mr-1.5 animate-bounce"></i> 20 Tháng 10 • Ngày Phụ Nữ Việt Nam
                 </div>
                 
-                <h1 class="font-serif-title text-3xl sm:text-4xl font-extrabold text-brand-deep mb-2 tracking-tight">
-                    Thiệp Chúc Mừng Phụ Nữ
+                <h1 class="font-serif-title text-3xl sm:text-4xl font-black text-brand-deep mb-3 tracking-tight leading-tight">
+                    Thiệp Tri Ân 20/10
                 </h1>
                 <p class="text-gray-600 text-sm sm:text-base mb-8">
-                    Nhập tên của bạn hoặc người phụ nữ tuyệt vời bạn yêu thương để nhận lời chúc đặc biệt ✨
+                    Nhập họ tên đầy đủ để nhận bài thơ 4 câu & lời chúc được cá nhân hóa ngọt ngào dành riêng cho bạn ✨
                 </p>
 
                 <!-- Input Form -->
@@ -313,7 +311,7 @@
                         <input 
                             type="text" 
                             id="user-name-input" 
-                            placeholder="Ví dụ: Trần Thị Thanh Yến, Bích, Ngọc..." 
+                            placeholder="Ví dụ: Trần Thị Thanh Yến, Nguyễn Thị Bích..." 
                             required
                             autocomplete="off"
                             class="glass-input w-full px-5 py-4 rounded-2xl text-lg font-medium text-gray-800 placeholder-pink-300 focus:outline-none text-center shadow-inner"
@@ -325,24 +323,25 @@
 
                     <!-- Quick Suggestion Badges -->
                     <div class="flex flex-wrap justify-center gap-2 text-xs text-brand-deep">
-                        <span class="text-gray-500 self-center font-medium">Gợi ý:</span>
-                        <button type="button" onclick="fillQuickName('Thanh Yến')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Yến</button>
-                        <button type="button" onclick="fillQuickName('Nguyễn Thị Bích')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Bích</button>
-                        <button type="button" onclick="fillQuickName('Phương')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Phương</button>
-                        <button type="button" onclick="fillQuickName('Hân')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Hân</button>
+                        <span class="text-gray-500 self-center font-medium">Thử ngay:</span>
+                        <button type="button" onclick="fillQuickName('Trần Thị Thanh Yến')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Yến</button>
+                        <button type="button" onclick="fillQuickName('Nguyen Thi Bích')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Bích</button>
+                        <button type="button" onclick="fillQuickName('Lê Phương')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Phương</button>
+                        <button type="button" onclick="fillQuickName('Hoàng Ngọc')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Ngọc</button>
+                        <button type="button" onclick="fillQuickName('Đặng Hân')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Hân</button>
                     </div>
 
                     <!-- Submit Button -->
                     <button 
                         type="submit" 
                         class="glow-btn w-full bg-gradient-to-r from-brand-pink via-rose-500 to-brand-deep text-white font-bold text-lg py-4 rounded-2xl shadow-lg hover:opacity-95 transition-all transform active:scale-98 flex items-center justify-center gap-2">
-                        <span>Khám Phá Thiệp Chúc</span>
+                        <span>Nhận Thư Chúc 20/10</span>
                         <i class="fas fa-sparkles"></i>
                     </button>
                 </form>
 
                 <p class="text-xs text-gray-400 mt-6">
-                    💖 Hỗ trợ tự động nhận diện tất cả các tên thuần nữ Việt Nam
+                    🌹 Tự động nhận diện & trích xuất tên thông minh từ họ và tên đầy đủ
                 </p>
             </div>
         </section>
@@ -353,7 +352,7 @@
             <!-- Envelope Stage -->
             <div id="envelope-stage" class="flex flex-col items-center">
                 <p class="text-brand-deep font-semibold text-lg mb-6 text-center animate-pulse">
-                    💌 Bạn có một bức thư tri ân! Bấm vào phong thư để mở nhé ✨
+                    💌 Bức thư tri ân 20/10 đang chờ bạn! Nhấp vào phong thư để mở nhé ✨
                 </p>
 
                 <div class="envelope-wrapper">
@@ -370,9 +369,9 @@
 
                         <!-- Letter inside preview -->
                         <div class="letter-preview">
-                            <div class="w-full h-full border border-pink-200 rounded p-2 flex flex-col justify-between items-center text-center">
-                                <span class="text-xs font-serif text-pink-400">Thiệp Tri Ân</span>
-                                <p class="font-cursive text-brand-deep text-lg font-bold" id="preview-name">Dành tặng Bạn</p>
+                            <div class="w-full h-full border border-pink-200 rounded-lg p-2 flex flex-col justify-between items-center text-center">
+                                <span class="text-xs font-serif text-pink-500 font-bold uppercase tracking-wider">Chào Mừng 20/10</span>
+                                <p class="font-cursive text-brand-deep text-xl font-bold" id="preview-name">Thư Gửi Bạn</p>
                                 <span class="text-xs text-pink-400"><i class="fas fa-rose"></i></span>
                             </div>
                         </div>
@@ -380,11 +379,10 @@
                 </div>
             </div>
 
-            <!-- Letter Full View (Appears after clicking envelope) -->
+            <!-- Letter Full View -->
             <div id="letter-content-card" class="hidden opacity-0 transition-opacity duration-700 w-full mt-4">
                 <div id="card-to-export" class="glass-card rounded-3xl p-6 sm:p-10 border-2 border-pink-200 relative overflow-hidden text-center shadow-2xl">
                     
-                    <!-- Decorative Background Flower Patterns -->
                     <div class="absolute top-0 left-0 p-4 opacity-10 text-brand-pink pointer-events-none">
                         <i class="fas fa-spa text-6xl"></i>
                     </div>
@@ -395,10 +393,10 @@
                     <!-- Header Greeting -->
                     <div class="mb-6">
                         <span class="inline-block px-4 py-1.5 bg-pink-100 text-brand-deep rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-                            Món quà tri ân đặc biệt
+                            Món Quà Tri Ân 20/10
                         </span>
                         <h2 class="font-serif-title text-3xl sm:text-4xl font-black text-brand-deep mt-1">
-                            Gửi Tặng <span id="display-female-name" class="underline decoration-pink-300 decoration-wavy">Bạn</span> 🌸
+                            Gửi Tặng Nàng <span id="display-female-name" class="underline decoration-pink-300 decoration-wavy">Bạn</span> 🌹
                         </h2>
                     </div>
 
@@ -406,7 +404,7 @@
                     <div class="my-6 p-6 bg-gradient-to-r from-pink-50 via-rose-50 to-pink-50 rounded-2xl border border-pink-100 shadow-sm relative">
                         <div class="text-brand-pink opacity-30 absolute top-2 left-3 text-2xl font-serif">“</div>
                         <p id="display-poem" class="font-serif text-lg sm:text-xl font-medium text-gray-800 leading-relaxed italic whitespace-pre-line py-2">
-                            <!-- Poem will be injected dynamically -->
+                            <!-- Poem injected dynamically -->
                         </p>
                         <div class="text-brand-pink opacity-30 absolute bottom-1 right-3 text-2xl font-serif">”</div>
                     </div>
@@ -414,23 +412,23 @@
                     <!-- Sweet Wish Box -->
                     <div class="mb-8 px-2">
                         <p id="display-wish" class="text-gray-700 text-base sm:text-lg leading-relaxed font-sans">
-                            <!-- Sweet wish injected here -->
+                            <!-- Wish injected dynamically -->
                         </p>
                     </div>
 
-                    <!-- Decorative Signature Footer -->
+                    <!-- Footer -->
                     <div class="border-t border-pink-100 pt-6 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-500 gap-4">
                         <div class="flex items-center gap-2 text-brand-deep font-semibold">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Ngày Phụ Nữ Việt Nam 8/3</span>
+                            <i class="fas fa-calendar-heart text-pink-500"></i>
+                            <span>Ngày Phụ Nữ Việt Nam 20/10</span>
                         </div>
                         <div class="font-cursive text-xl text-brand-pink font-bold">
-                            Chức bạn luôn tỏa sáng ✨
+                            Luôn luôn rạng rỡ & tỏa sáng ✨
                         </div>
                     </div>
                 </div>
 
-                <!-- Action Buttons Row -->
+                <!-- Action Buttons -->
                 <div class="mt-6 flex flex-wrap justify-center gap-3">
                     <button onclick="downloadCard()" class="bg-white hover:bg-pink-50 text-brand-deep font-semibold px-5 py-3 rounded-xl border border-pink-200 shadow-sm transition flex items-center gap-2">
                         <i class="fas fa-download text-pink-500"></i>
@@ -450,162 +448,151 @@
         </section>
     </main>
 
-    <!-- Modal Dialog for Unrecognized/Male Names -->
+    <!-- Modal Dialog for Unrecognized / Male Names -->
     <div id="alert-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
         <div class="glass-card bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center transform scale-90 transition-transform duration-300" id="modal-card">
             <div class="w-16 h-16 bg-pink-100 text-brand-pink rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                <i class="fas fa-heart-crack"></i>
+                <i class="fas fa-heart text-brand-pink"></i>
             </div>
-            <h3 class="font-serif-title text-xl font-bold text-gray-800 mb-2">Chưa Tìm Thấy Tên</h3>
+            <h3 class="font-serif-title text-xl font-bold text-gray-800 mb-2" id="modal-title">Gửi Chàng Trai Ga Lăng!</h3>
             <p id="modal-message" class="text-gray-600 text-sm mb-6 leading-relaxed">
-                Tên này chưa có trong danh sách quà tặng nữ, hãy thử nhập lại tên bạn nữ/người yêu/mẹ/chị gái nhé! 💕
+                Thiệp chúc mừng này được thiết kế đặc biệt dành riêng cho các nàng thơ nhân ngày 20/10! Nếu bạn là nam, hãy gửi link này cho người phụ nữ tuyệt vời của mình nhé! 💕
             </p>
             <button onclick="closeModal()" class="w-full bg-brand-pink hover:bg-brand-deep text-white font-semibold py-3 rounded-xl transition">
-                Đồng Ý & Thử Lại
+                Đồng Ý & Thử Tên Khác
             </button>
         </div>
     </div>
 
-    <!-- Notification Toast -->
+    <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-gray-900/90 text-white px-5 py-2.5 rounded-full text-sm font-medium z-50 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2 shadow-xl">
         <i id="toast-icon" class="fas fa-check-circle text-green-400"></i>
         <span id="toast-message">Đã sao chép!</span>
     </div>
 
-    <!-- Background Audio Component (Soft instrumental romance) -->
+    <!-- Audio Player -->
     <audio id="bg-audio" loop preload="auto">
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112188.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Javascript Logic -->
     <script>
-        /* ==================== 1. DATA STORE: NAMES, POEMS & WISHES ==================== */
+        /* ==================== 1. DATA STORE FOR 20/10 ==================== */
         
-        // Specific female names mappings from explicit user prompt list:
-        // A: An
-        // B: Bích
-        // G: Giang
-        // H: Hân
-        // K: Kim
-        // N: Nguyên, Ngân, Nhi, Ngọc
-        // P: Phương, Phụng
-        // Q: Quỳnh
-        // T: Thảo, Thùy, Tâm, Trân, Thư, Trang
-        // U: Uyên
-        // V: Vân
-        // Y: Yến, Ý
-        // Plus extended standard female names database!
-
+        // 20/10 Specific Poems & Wishes tailored for specified female names:
         const FEMALE_POEM_DATABASE = {
             "AN": {
-                poem: "An nhiên rạng rỡ nụ cười tươi,\nSống giữa vần thơ ngát vị đời.\nTháng ba hoa nở ngàn thương nhớ,\nCho An trọn vẹn muôn niềm vui.",
-                wish: "Chúc An một ngày 8/3 ngọt ngào, luôn giữ được nét dịu dàng, bình an trong tâm hồn và gặt hái muôn vàn thành công!"
+                poem: "An nhiên rạng rỡ nụ cười tươi,\n20 tháng 10 thắm sắc đời.\nTháng mười hoa nở ngàn thương nhớ,\nCho An trọn vẹn muôn niềm vui.",
+                wish: "Chúc An ngày 20/10 ngập tràn bình an, luôn giữ được nụ cười trong trẻo, xinh đẹp và hạnh phúc đong đầy!"
             },
             "BÍCH": {
-                poem: "Bích ngọc trong ngần vẻ thướt tha,\nNụ cười rạng rỡ tựa ngàn hoa.\nTháng ba trao trọn niềm yêu mến,\nHạnh phúc đong đầy muôn mái nhà.",
-                wish: "Chúc Bích ngày 8/3 xinh đẹp rạng rỡ như viên ngọc quý, luôn tự tin, yêu đời và nhận được vô vàn tình yêu thương!"
+                poem: "Bích ngọc trong ngần vẻ thướt tha,\nNụ cười rạng rỡ tựa ngàn hoa.\n20 tháng 10 trao thương mến,\nHạnh phúc đong đầy muôn mái nhà.",
+                wish: "Chúc Bích ngày Phụ nữ Việt Nam 20/10 tỏa sáng như viên ngọc quý, luôn tự tin, yêu đời và nhận được trọn vẹn yêu thương!"
             },
             "GIANG": {
-                poem: "Giang dịu êm đềm tựa dòng sông,\nNét đẹp thanh cao rạng má hồng.\nChúc Giang luôn giữ niềm tươi trẻ,\nHạnh phúc bên đời trọn thắm nồng.",
-                wish: "Chúc Giang một ngày 8/3 ngập tràn hoa và quà, ngọt ngào như lời ca và luôn mỉm cười tự tin mỗi ngày!"
+                poem: "Giang dịu êm đềm tựa dòng sông,\nNét đẹp thanh cao rạng má hồng.\n20 tháng 10 mong Giang thắm,\nHạnh phúc bên đời trọn thắm nồng.",
+                wish: "Chúc Giang một ngày 20/10 rực rỡ hoa tươi, luôn duyên dáng, thành công và bình an trong mọi chặng đường!"
             },
             "HÂN": {
-                poem: "Hân hân hớn hở đón ngày vui,\nXinh xắn đáng yêu dịu nụ cười.\nChúc Hân luôn giữ niềm hân hoan,\nThành công hạnh phúc trọn trọn đời.",
-                wish: "Chúc Hân 8/3 luôn rạng rỡ, tràn đầy năng lượng tích cực, mong mọi ước mơ của Hân đều sớm trở thành hiện thực!"
+                poem: "Hân hân hớn hở đón ngày vui,\n20 tháng 10 rạng nụ cười.\nChúc Hân luôn giữ niềm hân hoan,\nThành công hạnh phúc trọn trọn đời.",
+                wish: "Chúc Hân 20/10 tràn đầy năng lượng tích cực, luôn rạng rỡ xinh tươi và gặt hái muôn vàn điều ngọt ngào!"
             },
             "KIM": {
-                poem: "Kim ngân tỏa sáng nét kiêu sa,\nNữ tính dịu dàng rạng rỡ hoa.\nNgày hội tháng ba tràn may mắn,\nHạnh phúc êm đềm mãi nở hoa.",
-                wish: "Chúc Kim ngày Phụ Nữ 8/3 tràn ngập niềm vui, xinh đẹp kiêu sa và luôn tỏa sáng rực rỡ theo cách của riêng mình!"
+                poem: "Kim ngân tỏa sáng nét kiêu sa,\n20 tháng 10 rạng thắm hoa.\nNgày hội trao gửi ngàn lời chúc,\nHạnh phúc êm đềm mãi nở hoa.",
+                wish: "Chúc Kim ngày Phụ Nữ Việt Nam 20/10 luôn sang trọng, kiều diễm, tự tin tỏa sáng và đạt được mọi mong ước!"
             },
             "NGUYÊN": {
-                poem: "Nguyên nét dịu dàng vương ý thơ,\nNụ cười e ấp đắm hồn mơ.\nTháng ba gửi trọn muôn thương nhớ,\nCho Nguyên trọn vẹn ước mơ chờ.",
-                wish: "Chúc Nguyên một ngày 8/3 thật nhiều bất ngờ ngọt ngào, vui tươi, bình an và luôn được yêu thương chăm sóc!"
+                poem: "Nguyên nét dịu dàng vương ý thơ,\nNụ cười e ấp đắm hồn mơ.\n20 tháng 10 trao thương nhớ,\nCho Nguyên trọn vẹn ước mơ chờ.",
+                wish: "Chúc Nguyên một ngày 20/10 ấm áp, nhận được muôn vàn món quà ý nghĩa và luôn là bông hoa ngát hương!"
             },
             "NGÂN": {
-                poem: "Ngân vang tiếng hát ngát hương trời,\nThanh tú đan thanh thắm nụ cười.\nChúc Ngân tháng ba ngàn thương nhớ,\nTrọn vẹn tình yêu thắm cuộc đời.",
-                wish: "Chúc Ngân ngày 8/3 ngập tràn hạnh phúc, luôn giữ nụ cười trong trẻo và vươn tới những thành công rực rỡ!"
+                poem: "Ngân vang tiếng hát ngát hương trời,\n20 tháng 10 rạng nụ cười.\nChúc Ngân ngày hội tràn thương nhớ,\nTrọn vẹn tình yêu thắm cuộc đời.",
+                wish: "Chúc Ngân ngày 20/10 ngọt ngào như những giai điệu êm ái, xinh đẹp rạng ngời và luôn gặt hái nhiều thành công!"
             },
             "NHI": {
-                poem: "Nhi ngoan xinh xắn nét ngây thơ,\nNụ cười e ấp rạng nguồn thơ.\nChúc Nhi mãi giữ nét tươi trẻ,\nHạnh phúcong đong trọn bến bờ.",
-                wish: "Chúc Nhi 8/3 thật dịu dàng, xinh đẹp và luôn là niềm tự hào, niềm vui của gia đình cùng những người thân yêu!"
+                poem: "Nhi ngoan xinh xắn nét ngây thơ,\nNụ cười e ấp rạng nguồn thơ.\n20 tháng 10 tươi thắm mãi,\nHạnh phúc đong đầy trọn bến bờ.",
+                wish: "Chúc Nhi ngày Phụ nữ Việt Nam 20/10 thật dịu dàng, đáng yêu, luôn nhận được tình yêu thương mênh mang từ tất cả mọi người!"
             },
             "NGỌC": {
-                poem: "Ngọc ngà thanh tú vẻ kiêu sa,\nTỏa sáng uyển chuyển giữa ngàn hoa.\nTháng ba kính chúc Ngọc luôn đẹp,\nTrọn đời ấm áp mãi tươi hoa.",
-                wish: "Chúc Ngọc ngày Phụ nữ 8/3 luôn lấp lánh như viên ngọc quý, xinh đẹp, bình an và luôn gặt hái nhiều may mắn!"
+                poem: "Ngọc ngà thanh tú vẻ kiêu sa,\n20 tháng 10 rạng muôn hoa.\nChúc Ngọc trọn đời luôn tươi thắm,\nHạnh phúc bình an ấm mái nhà.",
+                wish: "Chúc Ngọc 20/10 lấp lánh như viên ngọc quý, ngày càng xinh đẹp, tự tin và thành công rực rỡ!"
             },
             "PHƯƠNG": {
-                poem: "Phương trời e ấp ngát hương hoa,\nNét đẹp hiền ngoan nụ đơm hoa.\nChúc Phương tràn ngập niềm hạnh phúc,\nNụ cười rạng rỡ trọn mai sau.",
-                wish: "Chúc Phương ngày 8/3 ngập tràn hoa tươi, lời chúc ngọt ngào và luôn vui vẻ, may mắn trong công việc lẫn cuộc sống!"
+                poem: "Phương trời e ấp ngát hương hoa,\nNét đẹp hiền ngoan nụ đơm hoa.\n20 tháng 10 trao hạnh phúc,\nNụ cười rạng rỡ trọn mai sau.",
+                wish: "Chúc Phương ngày 20/10 tràn ngập hoa tươi, luôn giữ mãi nét duyên dáng, thông minh và tràn ngập niềm vui!"
             },
             "PHỤNG": {
-                poem: "Phụng múa loan ca vẻ thướt tha,\nThanh cao nhân hậu thắm muôn nhà.\nTháng ba gửi tặng ngàn lời chúc,\nHạnh phúc bình an trọn tuổi xuân.",
-                wish: "Chúc Phụng 8/3 tràn đầy niềm vui, ngọt ngào, luôn xinh đẹp rạng ngời và gặt hái nhiều thành công mới!"
+                poem: "Phụng múa loan ca vẻ thướt tha,\n20 tháng 10 rạng muôn nhà.\nGửi tặng Phụng ngàn lời chúc tốt,\nHạnh phúc bình an trọn tuổi xuân.",
+                wish: "Chúc Phụng 20/10 luôn tươi trẻ, bản lĩnh, gặt hái thêm nhiều thành tựu mới và luôn ngập tràn hạnh phúc!"
             },
             "QUỲNH": {
-                poem: "Quỳnh hoa e ấp tỏa hương đêm,\nDịu dàng thắm thiết nét dịu êm.\nChúc Quỳnh rạng rỡ ngày phụ nữ,\nHạnh phúc chan hòa trọn ấm êm.",
-                wish: "Chúc Quỳnh ngày 8/3 xinh đẹp thanh khiết như đóa hoa quỳnh, luôn yêu đời và gặp nhiều may mắn trong cuộc sống!"
+                poem: "Quỳnh hoa e ấp tỏa hương đêm,\n20 tháng 10 dịu dịu êm.\nChúc Quỳnh rạng rỡ ngày phụ nữ,\nHạnh phúc chan hòa trọn ấm êm.",
+                wish: "Chúc Quỳnh ngày Phụ nữ Việt Nam 20/10 xinh đẹp thanh tao như đóa quỳnh, luôn bình an và được trân trọng!"
             },
             "THẢO": {
-                poem: "Thảo hiền dịu ngọt nét nết na,\nThanh tú đoan trang ấm mọi nhà.\nTháng ba kính chúc Thảo luôn thắm,\nHạnh phúc trọn vẹn muôn mùa hoa.",
-                wish: "Chúc Thảo ngày 8/3 tràn đầy tiếng cười, luôn ngọt ngào, đảm đang và gặp trọn vẹn những điều tuyệt vời nhất!"
+                poem: "Thảo hiền dịu ngọt nét nết na,\n20 tháng 10 ấm mọi nhà.\nTháng mười kính chúc Thảo luôn thắm,\nHạnh phúc trọn vẹn muôn mùa hoa.",
+                wish: "Chúc Thảo 20/10 tràn ngập tiếng cười, luôn ngọt ngào, đảm đang và gặp nhiều may mắn trong cuộc sống!"
             },
             "THÙY": {
-                poem: "Thùy mị nết na vẻ dịu dàng,\nNụ cười e ấp đắm không gian.\nTháng ba tươi thắm ngàn tia nắng,\nChúc Thùy hạnh phúc trọn bình an.",
-                wish: "Chúc Thùy một ngày 8/3 thật nhiều niềm vui, luôn duyên dáng, đáng yêu và ngập tràn hạnh phúc bên người thân!"
+                poem: "Thùy mị nết na vẻ dịu dàng,\n20 tháng 10 thắm không gian.\nChúc Thùy trọn đời ngàn tia nắng,\nHạnh phúc đong đầy trọn bình an.",
+                wish: "Chúc Thùy một ngày 20/10 thật nhiều niềm vui, luôn duyên dáng, trẻ trung và được yêu thương chăm sóc trọn vẹn!"
             },
             "TÂM": {
-                poem: "Tâm hồn trong sáng tựa dòng sông,\nNét đẹp dịu dàng thắm má hồng.\nChúc Tâm tháng ba ngàn thương nhớ,\nCuộc đời như ý thỏa ước mong.",
-                wish: "Chúc Tâm ngày 8/3 luôn giữ trọn tấm lòng ấm áp, xinh đẹp, bình an và nhận được thật nhiều tình yêu thương!"
+                poem: "Tâm hồn trong sáng tựa dòng sông,\nNét đẹp dịu dàng thắm má hồng.\n20 tháng 10 trao thương nhớ,\nCuộc đời như ý thỏa ước mong.",
+                wish: "Chúc Tâm ngày 20/10 luôn giữ trọn tấm lòng ấm áp, xinh đẹp, an nhiên và nhận được những điều tuyệt vời nhất!"
             },
             "TRÂN": {
-                poem: "Trân quý thanh cao nét ngọc ngà,\nDịu dàng xinh xắn rạng ngàn hoa.\nChúc Trân luôn giữ niềm vui mới,\nHạnh phúc ngọt ngào ấm mái nhà.",
-                wish: "Chúc Trân 8/3 ngọt ngào, rạng rỡ, luôn là bông hoa tỏa sắc hương và thành công rực rỡ trên con đường đã chọn!"
+                poem: "Trân quý thanh cao nét ngọc ngà,\n20 tháng 10 rạng ngàn hoa.\nChúc Trân luôn giữ niềm vui mới,\nHạnh phúc ngọt ngào ấm mái nhà.",
+                wish: "Chúc Trân ngày Phụ nữ Việt Nam 20/10 xinh đẹp, kiêu hãnh, luôn là nguồn cảm hứng tuyệt vời cho những người xung quanh!"
             },
             "THƯ": {
-                poem: "Thư thong e ấp nét thông minh,\nRạng rỡ nụ cười thắm vạn tình.\nTháng ba chúc Thư ngàn may mắn,\nRực rỡ tươi vui trọn hành trình.",
-                wish: "Chúc Thư một ngày 8/3 thật xinh đẹp, thông minh, bản lĩnh và luôn gặt hái nhiều thành tích rực rỡ!"
+                poem: "Thư thong e ấp nét thông minh,\n20 tháng 10 thắm vạn tình.\nChúc Thư ngày hội ngàn may mắn,\nRực rỡ tươi vui trọn hành trình.",
+                wish: "Chúc Thư một ngày 20/10 rực rỡ, xinh đẹp, thông minh và gặt hái thật nhiều thành công trên con đường ước mơ!"
             },
             "TRANG": {
-                poem: "Trang đài đài xé vẻ đoan trang,\nNụ cười rạng rỡ thắm không gian.\nChúc Trang tháng ba ngàn hoa nở,\nHạnh phúc bình an trọn ấm an.",
-                wish: "Chúc Trang ngày 8/3 luôn tươi trẻ, kiều diễm, thành công và luôn tìm thấy niềm vui trong mỗi chặng đường!"
+                poem: "Trang đài đài xé vẻ đoan trang,\n20 tháng 10 thắm không gian.\nChúc Trang mùa hội ngàn hoa nở,\nHạnh phúc bình an trọn ấm an.",
+                wish: "Chúc Trang 20/10 luôn thanh lịch, quyến rũ, trẻ trung và luôn đong đầy niềm vui trong tim!"
             },
             "UYÊN": {
-                poem: "Uyên bác thông minh nét dịu hiền,\nNụ cười thắm thiết tựa thần tiên.\nTháng ba gửi tặng Uyên niềm nhớ,\nTrọn đời hạnh phúc hết ưu phiền.",
-                wish: "Chúc Uyên ngày 8/3 ngập tràn may mắn, xinh đẹp dịu dàng và luôn tràn đầy cảm hứng ngọt ngào mỗi ngày!"
+                poem: "Uyên bác thông minh nét dịu hiền,\n20 tháng 10 rạng thần tiên.\nGửi tặng Uyên ngàn lời chúc tốt,\nTrọn đời hạnh phúc hết ưu phiền.",
+                wish: "Chúc Uyên ngày Phụ nữ Việt Nam 20/10 ngập tràn quà đẹp, luôn rạng rỡ xinh tươi và ngọt ngào như muôn hoa!"
             },
             "VÂN": {
-                poem: "Vân mây e ấp lướt tầng không,\nNét đẹp mĩ miều thắm má hồng.\nTháng ba kính chúc Vân luôn thắm,\nHạnh phúc đong đầy thỏa ước mong.",
-                wish: "Chúc Vân ngày Phụ nữ 8/3 thật nhẹ nhàng, bình an, tràn ngập tình yêu thương và xinh đẹp như những mây hồng!"
+                poem: "Vân mây e ấp lướt tầng không,\n20 tháng 10 thắm má hồng.\nTháng mười kính chúc Vân luôn thắm,\nHạnh phúc đong đầy thỏa ước mong.",
+                wish: "Chúc Vân ngày 20/10 thật nhẹ nhàng, bình an, xinh đẹp như những áng mây hồng mùa thu!"
             },
             "YẾN": {
-                poem: "Yến xinh chao cánh đón xuân sang,\nNụ cười rạng rỡ thắm không gian.\nTháng ba gửi trọn muôn thương nhớ,\nChúc Yến bình an trọn giấc vàng.",
-                wish: "Chúc Yến ngày 8/3 luôn rạng rỡ như chim yến mùa xuân, xinh đẹp, tự tin và ngập tràn hạnh phúc ngọt ngào!"
+                poem: "Yến xinh chao cánh đón xuân sang,\n20 tháng 10 thắm không gian.\nGửi trọn tình yêu trao lời chúc,\nChúc Yến bình an trọn giấc vàng.",
+                wish: "Chúc Yến ngày Phụ nữ Việt Nam 20/10 luôn tự do, xinh đẹp, rạng ngời và ngập tràn tình yêu thương ngọt ngào!"
             },
             "Ý": {
-                poem: "Ý như ước nguyện thắm ngày xuân,\nNét đẹp dịu dàng dạ trong ngần.\nTháng ba trao trọn ngàn lời chúc,\nHạnh phúc vẹn toàn muôn ân cần.",
-                wish: "Chúc Ý ngày 8/3 vạn sự như ý, luôn mỉm cười tự tin, xinh đẹp và gặt hái muôn vàn may mắn!"
+                poem: "Ý như ước nguyện thắm ngày vui,\n20 tháng 10 rạng nụ cười.\nNgày hội trao trọn ngàn lời chúc,\nHạnh phúc vẹn toàn thắm cuộc đời.",
+                wish: "Chúc Ý ngày 20/10 mọi sự như ý, luôn mỉm cười tự tin, xinh đẹp và tỏa sáng theo cách đặc biệt nhất!"
             }
         };
 
-        // Fallback Poem Template for standard female names not explicitly listed
         const DEFAULT_POEM_TEMPLATE = (name) => ({
-            poem: `${name} ơi e ấp nét xuân sang,\nNụ cười rạng rỡ thắm không gian.\nTháng ba kính chúc ngàn hoa nở,\nHạnh phúc bình an trọn giấc vàng.`,
-            wish: `Chúc ${name} một ngày Phụ nữ 8/3 thật xinh đẹp, rạng rỡ, luôn tràn đầy năng lượng tích cực và nhận được muôn vàn yêu thương!`
+            poem: `${name} ơi e ấp nét xuân sang,\n20 tháng 10 thắm không gian.\nTháng mười kính chúc ngàn hoa nở,\nHạnh phúc bình an trọn giấc vàng.`,
+            wish: `Chúc ${name} ngày Phụ nữ Việt Nam 20/10 thật xinh đẹp, rạng rỡ, tràn đầy năng lượng tích cực và luôn hạnh phúc!`
         });
 
-        // Comprehensive database of common female names in Vietnam for detection validation
+        // Set of female names
         const KNOWN_FEMALE_NAMES = new Set([
             "AN", "BÍCH", "GIANG", "HÂN", "KIM", "NGUYÊN", "NGÂN", "NHI", "NGỌC", "PHƯƠNG", "PHỤNG", 
             "QUỲNH", "THẢO", "THÙY", "TÂM", "TRÂN", "THƯ", "TRANG", "UYÊN", "VÂN", "YẾN", "Ý",
-            "MAI", "LAN", "CÚC", "TRÚC", "HOA", "HƯƠNG", "HÀ", "LINH", "TRANG", "LY", "LYN", "LIÊN", 
+            "MAI", "LAN", "CÚC", "TRÚC", "HOA", "HƯƠNG", "HÀ", "LINH", "LY", "LYN", "LIÊN", 
             "LOAN", "PHÚC", "HẰNG", "HẢI", "DUNG", "DUYÊN", "HIỀN", "HÒA", "HỒNG", "HUỆ", "HUYỀN", 
-            "KHÁNH", "KHOA", "KHUÊ", "LÂM", "MI", "MY", "MINH", "NGA", "NHƯ", "NHUNG", "OANH", "CẨM",
-            "QUYÊN", "THU", "THỦY", "THƯƠNG", "TIÊN", "TRINH", "TUYẾT", "VI", "VY", "XUÂN", "YẾN"
+            "KHÁNH", "KHUÊ", "LÂM", "MI", "MY", "MINH", "NGA", "NHƯ", "NHUNG", "OANH", "CẨM",
+            "QUYÊN", "THU", "THỦY", "THƯƠNG", "TIÊN", "TRINH", "TUYẾT", "VI", "VY", "XUÂN"
         ]);
 
-        /* ==================== 2. VIETNAMESE NAME EXTRACTION ENGINE ==================== */
+        // Explicit male names list for custom popup
+        const KNOWN_MALE_NAMES = new Set([
+            "NAM", "HÙNG", "CƯỜNG", "TUẤN", "ĐỨC", "LONG", "HOÀNG", "HUY", "HẢI", "DŨNG", 
+            "BẢO", "ĐẠT", "PHÚC", "THÀNH", "TRUNG", "THẮNG", "SƠN", "QUÂN", "VIỆT", "PHONG"
+        ]);
 
-        // Helper: Remove Vietnamese Tones/Diacritics for normalization
+        /* ==================== 2. HELPER FUNCTIONS ==================== */
+
         function removeVietnameseTones(str) {
             str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
             str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
@@ -624,27 +611,14 @@
             return str;
         }
 
-        /**
-         * Extracts main last token/first name intelligently
-         * e.g., "Trần Thị Thanh Yến" -> "Yến"
-         * "Nguyen Thi Bích" -> "Bích"
-         */
         function extractMainName(fullName) {
             if (!fullName) return "";
-            // Clean strings
             let cleaned = fullName.trim().replace(/\s+/g, ' ');
             let words = cleaned.split(' ');
-            
-            // Get last word (main given name in Vietnamese culture)
             let rawMainName = words[words.length - 1];
-            
-            // Handle edge cases like "Bích (Bích )" -> remove brackets
-            rawMainName = rawMainName.replace(/[()]/g, '');
-            
-            return rawMainName;
+            return rawMainName.replace(/[()]/g, '');
         }
 
-        // Capitalize first letter neatly
         function formatCapitalize(str) {
             if (!str) return "";
             return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
@@ -656,7 +630,6 @@
         let currentWishData = null;
         let isEnvelopeOpened = false;
 
-        // On Input Change -> Show/Hide Clear button
         document.getElementById('user-name-input').addEventListener('input', function(e) {
             const clearBtn = document.getElementById('clear-btn');
             if (e.target.value.length > 0) {
@@ -679,7 +652,6 @@
             document.getElementById('clear-btn').classList.remove('hidden');
         }
 
-        // Form Submit Handler
         function handleNameSubmit(event) {
             event.preventDefault();
             const rawInput = document.getElementById('user-name-input').value;
@@ -688,10 +660,13 @@
             const mainName = extractMainName(rawInput);
             const normalizedMainName = removeVietnameseTones(mainName).toUpperCase();
 
-            // Check if name is recognized as female
-            let matchedKey = null;
+            // Explicit Male check
+            if (KNOWN_MALE_NAMES.has(normalizedMainName)) {
+                showModal("Gửi Chàng Trai Ga Lăng!", "Thiệp chúc mừng này được thiết kế đặc biệt dành riêng cho các nàng thơ ngày 20/10! Nếu bạn là nam, hãy gửi link này cho người phụ nữ tuyệt vời của mình nhé! 💕");
+                return;
+            }
 
-            // Search in our primary DB keys
+            let matchedKey = null;
             for (let key in FEMALE_POEM_DATABASE) {
                 if (removeVietnameseTones(key) === normalizedMainName) {
                     matchedKey = key;
@@ -699,29 +674,21 @@
                 }
             }
 
-            // Check in broader set
             let isFemale = matchedKey !== null || KNOWN_FEMALE_NAMES.has(normalizedMainName);
 
             if (isFemale) {
-                // Formatting nicely
                 currentFemaleName = formatCapitalize(mainName);
-                
-                // Fetch Poem & Wish Data
                 if (matchedKey && FEMALE_POEM_DATABASE[matchedKey]) {
                     currentWishData = FEMALE_POEM_DATABASE[matchedKey];
                 } else {
                     currentWishData = DEFAULT_POEM_TEMPLATE(currentFemaleName);
                 }
-
-                // Proceed to Screen 2
                 transitionToLetter();
             } else {
-                // Show friendly modal for unrecognized / male name
-                showModal();
+                showModal("Chưa Tìm Thấy Tên Nữ", "Thiệp chúc mừng này dành tặng các nàng thơ ngày 20/10. Bạn hãy thử nhập lại tên bạn nữ/người yêu/mẹ/chị gái nhé! 💕");
             }
         }
 
-        /* Transition to Envelope Screen */
         function transitionToLetter() {
             const screenInput = document.getElementById('screen-input');
             const screenLetter = document.getElementById('screen-letter');
@@ -733,13 +700,11 @@
                 screenLetter.classList.remove('hidden');
                 screenLetter.classList.add('flex');
                 
-                // Populate Preview Name
-                document.getElementById('preview-name').innerText = `Dành tặng ${currentFemaleName}`;
+                document.getElementById('preview-name').innerText = `Gửi ${currentFemaleName}`;
                 document.getElementById('display-female-name').innerText = currentFemaleName;
                 document.getElementById('display-poem').innerText = currentWishData.poem;
                 document.getElementById('display-wish').innerText = currentWishData.wish;
 
-                // Reset envelope state
                 isEnvelopeOpened = false;
                 document.getElementById('envelope-elem').classList.remove('open');
                 document.getElementById('envelope-stage').classList.remove('hidden');
@@ -747,7 +712,6 @@
             }, 400);
         }
 
-        /* Open Envelope Animation & Confetti Trigger */
         function openEnvelope() {
             if (isEnvelopeOpened) return;
             isEnvelopeOpened = true;
@@ -755,13 +719,9 @@
             const envelope = document.getElementById('envelope-elem');
             envelope.classList.add('open');
 
-            // Play music if allowed/not playing
             playMusicSoftly();
-
-            // Trigger Confetti fireworks!
             triggerConfetti();
 
-            // Transition to full card view
             setTimeout(() => {
                 const letterCard = document.getElementById('letter-content-card');
                 letterCard.classList.remove('hidden');
@@ -772,7 +732,6 @@
             }, 800);
         }
 
-        /* Reset App back to Input Screen */
         function resetApp() {
             const screenInput = document.getElementById('screen-input');
             const screenLetter = document.getElementById('screen-letter');
@@ -788,10 +747,12 @@
             }, 400);
         }
 
-        /* Modal Dialog Controls */
-        function showModal() {
+        function showModal(title, message) {
             const modal = document.getElementById('alert-modal');
             const modalCard = document.getElementById('modal-card');
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
@@ -815,19 +776,14 @@
 
         function triggerConfetti() {
             if (typeof confetti === 'function') {
-                // Multi-stage confetti burst
                 const duration = 3 * 1000;
                 const animationEnd = Date.now() + duration;
 
                 const interval = setInterval(function() {
                     const timeLeft = animationEnd - Date.now();
-
-                    if (timeLeft <= 0) {
-                        return clearInterval(interval);
-                    }
+                    if (timeLeft <= 0) return clearInterval(interval);
 
                     const particleCount = 40 * (timeLeft / duration);
-
                     confetti({
                         particleCount,
                         startVelocity: 30,
@@ -840,16 +796,13 @@
             }
         }
 
-        // Background floating heart particles
         function createBackgroundParticles() {
             const container = document.getElementById('particle-container');
-            const icons = ['fa-heart', 'fa-sparkles', 'fa-flower', 'fa-star'];
+            const icons = ['fa-heart', 'fa-sparkles', 'fa-flower-tulip', 'fa-star'];
             
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 22; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'bg-particle text-brand-pink opacity-40';
-                
-                // Random position & timing
                 particle.style.left = `${Math.random() * 100}vw`;
                 particle.style.animationDuration = `${6 + Math.random() * 8}s`;
                 particle.style.animationDelay = `${Math.random() * 5}s`;
@@ -862,7 +815,7 @@
             }
         }
 
-        /* ==================== 5. AUDIO MUSIC TOGGLE ==================== */
+        /* ==================== 5. AUDIO ==================== */
 
         const audio = document.getElementById('bg-audio');
         const musicToggle = document.getElementById('music-toggle');
@@ -875,9 +828,7 @@
                 audio.play().then(() => {
                     isPlaying = true;
                     musicIcon.className = "fas fa-music text-lg animate-spin text-brand-deep";
-                }).catch(err => {
-                    console.log("Audio autoplay restricted by browser.");
-                });
+                }).catch(err => console.log("Audio autoplay restricted."));
             }
         }
 
@@ -899,14 +850,10 @@
         function copyWishText() {
             const poem = document.getElementById('display-poem').innerText;
             const wish = document.getElementById('display-wish').innerText;
-            const fullText = `🌸 Thiệp Chúc Mừng 8/3 Dành Tặng ${currentFemaleName} 🌸\n\n${poem}\n\n${wish}`;
+            const fullText = `🌸 Thiệp Chúc Mừng 20/10 Dành Tặng ${currentFemaleName} 🌸\n\n${poem}\n\n${wish}`;
 
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(fullText).then(() => {
-                    showToast('Đã sao chép lời chúc!');
-                }).catch(() => {
-                    fallbackCopy(fullText);
-                });
+                navigator.clipboard.writeText(fullText).then(() => showToast('Đã sao chép lời chúc 20/10!'));
             } else {
                 fallbackCopy(fullText);
             }
@@ -919,27 +866,20 @@
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-            showToast('Đã sao chép lời chúc!');
+            showToast('Đã sao chép lời chúc 20/10!');
         }
 
         function downloadCard() {
-            showToast('Đang tạo hình ảnh thiệp...');
+            showToast('Đang tạo hình ảnh thiệp 20/10...');
             const cardElem = document.getElementById('card-to-export');
             
             if (typeof html2canvas === 'function') {
-                html2canvas(cardElem, {
-                    scale: 2,
-                    backgroundColor: '#FFF0F5',
-                    useCORS: true
-                }).then(canvas => {
+                html2canvas(cardElem, { scale: 2, backgroundColor: '#FFF0F5', useCORS: true }).then(canvas => {
                     const link = document.createElement('a');
-                    link.download = `Thiep_8-3_${currentFemaleName}.png`;
+                    link.download = `Thiep_20-10_${currentFemaleName}.png`;
                     link.href = canvas.toDataURL('image/png');
                     link.click();
                     showToast('Đã tải thiệp về máy thành công!');
-                }).catch(err => {
-                    console.error("Download error:", err);
-                    showToast('Không thể tạo hình ảnh, hãy thử chụp màn hình nhé!');
                 });
             }
         }
@@ -949,13 +889,9 @@
             const toastMsg = document.getElementById('toast-message');
             toastMsg.innerText = message;
             toast.classList.remove('opacity-0', 'pointer-events-none');
-            
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'pointer-events-none');
-            }, 3000);
+            setTimeout(() => toast.classList.add('opacity-0', 'pointer-events-none'), 3000);
         }
 
-        // Initialize Background Particles on Load
         window.addEventListener('DOMContentLoaded', () => {
             createBackgroundParticles();
         });
