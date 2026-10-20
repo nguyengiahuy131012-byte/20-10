@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Chúc Mừng Ngày Phụ Nữ - 8/3 & 20/10</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- HTML2Canvas for downloading card -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            deep: '#C2185B',
+                            pink: '#E91E63',
+                            light: '#FF69B4',
+                            soft: '#FFF0F5',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Merriweather', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        cursive: ['Dancing Script', 'Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #FFF0F5 0%, #FFD1DC 50%, #FFE4E1 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .font-cursive {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 182, 193, 0.5);
+            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.12);
+        }
+
+        .glass-input {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 2px solid #FFB6C1;
+            transition: all 0.3s ease;
+        }
+
+        .glass-input:focus {
+            border-color: #E91E63;
+            box-shadow: 0 0 15px rgba(233, 30, 99, 0.3);
+            outline: none;
+        }
+
+        /* Envelope Styles & 3D Animation */
+        .envelope-wrapper {
+            perspective: 1000px;
+        }
+
+        .envelope {
+            position: relative;
+            width: 320px;
+            height: 220px;
+            background-color: #E91E63;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 0 15px 35px rgba(194, 24, 91, 0.3);
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        @media (min-width: 640px) {
+            .envelope {
+                width: 440px;
+                height: 290px;
+            }
+        }
+
+        .envelope:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .envelope .flap-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-top: 130px solid #D81B60;
+            transform-origin: top;
+            transition: transform 0.6s ease-in-out;
+            z-index: 4;
+        }
+
+        @media (min-width: 640px) {
+            .envelope .flap-top {
+                border-left-width: 220px;
+                border-right-width: 220px;
+                border-top-width: 170px;
+            }
+        }
+
+        .envelope .flap-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 110px solid transparent;
+            border-bottom: 110px solid transparent;
+            border-left: 170px solid #EC407A;
+            border-bottom-left-radius: 12px;
+            z-index: 3;
+        }
+
+        @media (min-width: 640px) {
+            .envelope .flap-left {
+                border-top-width: 145px;
+                border-bottom-width: 145px;
+                border-left-width: 230px;
+            }
+        }
+
+        .envelope .flap-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 110px solid transparent;
+            border-bottom: 110px solid transparent;
+            border-right: 170px solid #F06292;
+            border-bottom-right-radius: 12px;
+            z-index: 3;
+        }
+
+        @media (min-width: 640px) {
+            .envelope .flap-right {
+                border-top-width: 145px;
+                border-bottom-width: 145px;
+                border-right-width: 230px;
+            }
+        }
+
+        .envelope .flap-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 160px solid transparent;
+            border-right: 160px solid transparent;
+            border-bottom: 120px solid #E91E63;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 3;
+        }
+
+        @media (min-width: 640px) {
+            .envelope .flap-bottom {
+                border-left-width: 220px;
+                border-right-width: 220px;
+                border-bottom-width: 160px;
+            }
+        }
+
+        .envelope .letter-preview {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 88%;
+            height: 80%;
+            background: #FFF;
+            border-radius: 8px;
+            z-index: 2;
+            transition: transform 0.7s ease-in-out, opacity 0.5s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .envelope.open .flap-top {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope.open .letter-preview {
+            transform: translateX(-50%) translateY(-140px);
+            z-index: 5;
+        }
+
+        @media (min-width: 640px) {
+            .envelope.open .letter-preview {
+                transform: translateX(-50%) translateY(-180px);
+            }
+        }
+
+        /* Floating Hearts BG */
+        .bg-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatUp 8s infinite linear;
+            opacity: 0.6;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing Pulse Effect */
+        .glow-btn {
+            box-shadow: 0 0 20px rgba(233, 30, 99, 0.4);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 15px rgba(233, 30, 99, 0.4);
+            }
+            100% {
+                box-shadow: 0 0 28px rgba(255, 105, 180, 0.8);
+            }
+        }
+
+        /* Gold Stamp Seal */
+        .wax-seal {
+            background: radial-gradient(circle, #FFE082 0%, #D4AF37 70%, #B8860B 100%);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25), inset 0 2px 3px rgba(255,255,255,0.6);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen justify-between relative text-gray-800 antialiased selection:bg-pink-300 selection:text-brand-deep">
+
+    <!-- Background Floating Hearts Canvas / Container -->
+    <div id="particle-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+    <!-- Audio Player Control (Background Music) -->
+    <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+        <button id="music-toggle" class="glass-card w-12 h-12 rounded-full flex items-center justify-center text-brand-pink hover:text-brand-deep hover:scale-110 transition duration-300 shadow-md">
+            <i id="music-icon" class="fas fa-music text-lg"></i>
+        </button>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 flex-grow flex items-center justify-center px-4 py-8">
+
+        <!-- ==================== SCREEN 1: INPUT NAME ==================== -->
+        <section id="screen-input" class="w-full max-w-lg transition-all duration-500 transform">
+            <div class="glass-card rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden">
+                <!-- Decorative Top Ribbon -->
+                <div class="absolute -top-12 -right-12 w-28 h-28 bg-gradient-to-br from-brand-light to-brand-pink rounded-full blur-xl opacity-50"></div>
+                
+                <!-- Header Title -->
+                <div class="inline-block p-3 bg-pink-100 rounded-full text-brand-pink mb-4">
+                    <i class="fas fa-heart text-2xl animate-bounce"></i>
+                </div>
+                
+                <h1 class="font-serif-title text-3xl sm:text-4xl font-extrabold text-brand-deep mb-2 tracking-tight">
+                    Thiệp Chúc Mừng Phụ Nữ
+                </h1>
+                <p class="text-gray-600 text-sm sm:text-base mb-8">
+                    Nhập tên của bạn hoặc người phụ nữ tuyệt vời bạn yêu thương để nhận lời chúc đặc biệt ✨
+                </p>
+
+                <!-- Input Form -->
+                <form id="name-form" onsubmit="handleNameSubmit(event)" class="space-y-6">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="user-name-input" 
+                            placeholder="Ví dụ: Trần Thị Thanh Yến, Bích, Ngọc..." 
+                            required
+                            autocomplete="off"
+                            class="glass-input w-full px-5 py-4 rounded-2xl text-lg font-medium text-gray-800 placeholder-pink-300 focus:outline-none text-center shadow-inner"
+                        />
+                        <button type="button" onclick="clearInput()" id="clear-btn" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-pink-500">
+                            <i class="fas fa-times-circle text-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Quick Suggestion Badges -->
+                    <div class="flex flex-wrap justify-center gap-2 text-xs text-brand-deep">
+                        <span class="text-gray-500 self-center font-medium">Gợi ý:</span>
+                        <button type="button" onclick="fillQuickName('Thanh Yến')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Yến</button>
+                        <button type="button" onclick="fillQuickName('Nguyễn Thị Bích')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Bích</button>
+                        <button type="button" onclick="fillQuickName('Phương')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Phương</button>
+                        <button type="button" onclick="fillQuickName('Hân')" class="bg-pink-100 hover:bg-pink-200 px-3 py-1 rounded-full transition">Hân</button>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button 
+                        type="submit" 
+                        class="glow-btn w-full bg-gradient-to-r from-brand-pink via-rose-500 to-brand-deep text-white font-bold text-lg py-4 rounded-2xl shadow-lg hover:opacity-95 transition-all transform active:scale-98 flex items-center justify-center gap-2">
+                        <span>Khám Phá Thiệp Chúc</span>
+                        <i class="fas fa-sparkles"></i>
+                    </button>
+                </form>
+
+                <p class="text-xs text-gray-400 mt-6">
+                    💖 Hỗ trợ tự động nhận diện tất cả các tên thuần nữ Việt Nam
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================== SCREEN 2: ENVELOPE & LETTER ==================== -->
+        <section id="screen-letter" class="hidden w-full max-w-2xl flex-col items-center justify-center transition-all duration-700">
+            
+            <!-- Envelope Stage -->
+            <div id="envelope-stage" class="flex flex-col items-center">
+                <p class="text-brand-deep font-semibold text-lg mb-6 text-center animate-pulse">
+                    💌 Bạn có một bức thư tri ân! Bấm vào phong thư để mở nhé ✨
+                </p>
+
+                <div class="envelope-wrapper">
+                    <div id="envelope-elem" onclick="openEnvelope()" class="envelope">
+                        <div class="flap-top"></div>
+                        <div class="flap-left"></div>
+                        <div class="flap-right"></div>
+                        <div class="flap-bottom"></div>
+                        
+                        <!-- Wax Seal Badge -->
+                        <div class="wax-seal absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full z-10 flex items-center justify-center text-white font-bold text-lg border-2 border-yellow-200">
+                            <i class="fas fa-heart text-red-600 drop-shadow"></i>
+                        </div>
+
+                        <!-- Letter inside preview -->
+                        <div class="letter-preview">
+                            <div class="w-full h-full border border-pink-200 rounded p-2 flex flex-col justify-between items-center text-center">
+                                <span class="text-xs font-serif text-pink-400">Thiệp Tri Ân</span>
+                                <p class="font-cursive text-brand-deep text-lg font-bold" id="preview-name">Dành tặng Bạn</p>
+                                <span class="text-xs text-pink-400"><i class="fas fa-rose"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter Full View (Appears after clicking envelope) -->
+            <div id="letter-content-card" class="hidden opacity-0 transition-opacity duration-700 w-full mt-4">
+                <div id="card-to-export" class="glass-card rounded-3xl p-6 sm:p-10 border-2 border-pink-200 relative overflow-hidden text-center shadow-2xl">
+                    
+                    <!-- Decorative Background Flower Patterns -->
+                    <div class="absolute top-0 left-0 p-4 opacity-10 text-brand-pink pointer-events-none">
+                        <i class="fas fa-spa text-6xl"></i>
+                    </div>
+                    <div class="absolute bottom-0 right-0 p-4 opacity-10 text-brand-pink pointer-events-none">
+                        <i class="fas fa-spa text-6xl transform rotate-180"></i>
+                    </div>
+
+                    <!-- Header Greeting -->
+                    <div class="mb-6">
+                        <span class="inline-block px-4 py-1.5 bg-pink-100 text-brand-deep rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                            Món quà tri ân đặc biệt
+                        </span>
+                        <h2 class="font-serif-title text-3xl sm:text-4xl font-black text-brand-deep mt-1">
+                            Gửi Tặng <span id="display-female-name" class="underline decoration-pink-300 decoration-wavy">Bạn</span> 🌸
+                        </h2>
+                    </div>
+
+                    <!-- Personalized 4-Line Poem Box -->
+                    <div class="my-6 p-6 bg-gradient-to-r from-pink-50 via-rose-50 to-pink-50 rounded-2xl border border-pink-100 shadow-sm relative">
+                        <div class="text-brand-pink opacity-30 absolute top-2 left-3 text-2xl font-serif">“</div>
+                        <p id="display-poem" class="font-serif text-lg sm:text-xl font-medium text-gray-800 leading-relaxed italic whitespace-pre-line py-2">
+                            <!-- Poem will be injected dynamically -->
+                        </p>
+                        <div class="text-brand-pink opacity-30 absolute bottom-1 right-3 text-2xl font-serif">”</div>
+                    </div>
+
+                    <!-- Sweet Wish Box -->
+                    <div class="mb-8 px-2">
+                        <p id="display-wish" class="text-gray-700 text-base sm:text-lg leading-relaxed font-sans">
+                            <!-- Sweet wish injected here -->
+                        </p>
+                    </div>
+
+                    <!-- Decorative Signature Footer -->
+                    <div class="border-t border-pink-100 pt-6 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-500 gap-4">
+                        <div class="flex items-center gap-2 text-brand-deep font-semibold">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Ngày Phụ Nữ Việt Nam 8/3</span>
+                        </div>
+                        <div class="font-cursive text-xl text-brand-pink font-bold">
+                            Chức bạn luôn tỏa sáng ✨
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons Row -->
+                <div class="mt-6 flex flex-wrap justify-center gap-3">
+                    <button onclick="downloadCard()" class="bg-white hover:bg-pink-50 text-brand-deep font-semibold px-5 py-3 rounded-xl border border-pink-200 shadow-sm transition flex items-center gap-2">
+                        <i class="fas fa-download text-pink-500"></i>
+                        <span>Tải Thiệp Về Máy</span>
+                    </button>
+                    <button onclick="copyWishText()" class="bg-white hover:bg-pink-50 text-brand-deep font-semibold px-5 py-3 rounded-xl border border-pink-200 shadow-sm transition flex items-center gap-2">
+                        <i class="fas fa-copy text-pink-500"></i>
+                        <span>Sao Chép Lời Chúc</span>
+                    </button>
+                    <button onclick="resetApp()" class="bg-gradient-to-r from-brand-pink to-brand-deep text-white font-semibold px-5 py-3 rounded-xl shadow-md hover:opacity-90 transition flex items-center gap-2">
+                        <i class="fas fa-redo"></i>
+                        <span>Tra Cứu Tên Khác</span>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Modal Dialog for Unrecognized/Male Names -->
+    <div id="alert-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <div class="glass-card bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center transform scale-90 transition-transform duration-300" id="modal-card">
+            <div class="w-16 h-16 bg-pink-100 text-brand-pink rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fas fa-heart-crack"></i>
+            </div>
+            <h3 class="font-serif-title text-xl font-bold text-gray-800 mb-2">Chưa Tìm Thấy Tên</h3>
+            <p id="modal-message" class="text-gray-600 text-sm mb-6 leading-relaxed">
+                Tên này chưa có trong danh sách quà tặng nữ, hãy thử nhập lại tên bạn nữ/người yêu/mẹ/chị gái nhé! 💕
+            </p>
+            <button onclick="closeModal()" class="w-full bg-brand-pink hover:bg-brand-deep text-white font-semibold py-3 rounded-xl transition">
+                Đồng Ý & Thử Lại
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-gray-900/90 text-white px-5 py-2.5 rounded-full text-sm font-medium z-50 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2 shadow-xl">
+        <i id="toast-icon" class="fas fa-check-circle text-green-400"></i>
+        <span id="toast-message">Đã sao chép!</span>
+    </div>
+
+    <!-- Background Audio Component (Soft instrumental romance) -->
+    <audio id="bg-audio" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112188.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Javascript Logic -->
+    <script>
+        /* ==================== 1. DATA STORE: NAMES, POEMS & WISHES ==================== */
+        
+        // Specific female names mappings from explicit user prompt list:
+        // A: An
+        // B: Bích
+        // G: Giang
+        // H: Hân
+        // K: Kim
+        // N: Nguyên, Ngân, Nhi, Ngọc
+        // P: Phương, Phụng
+        // Q: Quỳnh
+        // T: Thảo, Thùy, Tâm, Trân, Thư, Trang
+        // U: Uyên
+        // V: Vân
+        // Y: Yến, Ý
+        // Plus extended standard female names database!
+
+        const FEMALE_POEM_DATABASE = {
+            "AN": {
+                poem: "An nhiên rạng rỡ nụ cười tươi,\nSống giữa vần thơ ngát vị đời.\nTháng ba hoa nở ngàn thương nhớ,\nCho An trọn vẹn muôn niềm vui.",
+                wish: "Chúc An một ngày 8/3 ngọt ngào, luôn giữ được nét dịu dàng, bình an trong tâm hồn và gặt hái muôn vàn thành công!"
+            },
+            "BÍCH": {
+                poem: "Bích ngọc trong ngần vẻ thướt tha,\nNụ cười rạng rỡ tựa ngàn hoa.\nTháng ba trao trọn niềm yêu mến,\nHạnh phúc đong đầy muôn mái nhà.",
+                wish: "Chúc Bích ngày 8/3 xinh đẹp rạng rỡ như viên ngọc quý, luôn tự tin, yêu đời và nhận được vô vàn tình yêu thương!"
+            },
+            "GIANG": {
+                poem: "Giang dịu êm đềm tựa dòng sông,\nNét đẹp thanh cao rạng má hồng.\nChúc Giang luôn giữ niềm tươi trẻ,\nHạnh phúc bên đời trọn thắm nồng.",
+                wish: "Chúc Giang một ngày 8/3 ngập tràn hoa và quà, ngọt ngào như lời ca và luôn mỉm cười tự tin mỗi ngày!"
+            },
+            "HÂN": {
+                poem: "Hân hân hớn hở đón ngày vui,\nXinh xắn đáng yêu dịu nụ cười.\nChúc Hân luôn giữ niềm hân hoan,\nThành công hạnh phúc trọn trọn đời.",
+                wish: "Chúc Hân 8/3 luôn rạng rỡ, tràn đầy năng lượng tích cực, mong mọi ước mơ của Hân đều sớm trở thành hiện thực!"
+            },
+            "KIM": {
+                poem: "Kim ngân tỏa sáng nét kiêu sa,\nNữ tính dịu dàng rạng rỡ hoa.\nNgày hội tháng ba tràn may mắn,\nHạnh phúc êm đềm mãi nở hoa.",
+                wish: "Chúc Kim ngày Phụ Nữ 8/3 tràn ngập niềm vui, xinh đẹp kiêu sa và luôn tỏa sáng rực rỡ theo cách của riêng mình!"
+            },
+            "NGUYÊN": {
+                poem: "Nguyên nét dịu dàng vương ý thơ,\nNụ cười e ấp đắm hồn mơ.\nTháng ba gửi trọn muôn thương nhớ,\nCho Nguyên trọn vẹn ước mơ chờ.",
+                wish: "Chúc Nguyên một ngày 8/3 thật nhiều bất ngờ ngọt ngào, vui tươi, bình an và luôn được yêu thương chăm sóc!"
+            },
+            "NGÂN": {
+                poem: "Ngân vang tiếng hát ngát hương trời,\nThanh tú đan thanh thắm nụ cười.\nChúc Ngân tháng ba ngàn thương nhớ,\nTrọn vẹn tình yêu thắm cuộc đời.",
+                wish: "Chúc Ngân ngày 8/3 ngập tràn hạnh phúc, luôn giữ nụ cười trong trẻo và vươn tới những thành công rực rỡ!"
+            },
+            "NHI": {
+                poem: "Nhi ngoan xinh xắn nét ngây thơ,\nNụ cười e ấp rạng nguồn thơ.\nChúc Nhi mãi giữ nét tươi trẻ,\nHạnh phúcong đong trọn bến bờ.",
+                wish: "Chúc Nhi 8/3 thật dịu dàng, xinh đẹp và luôn là niềm tự hào, niềm vui của gia đình cùng những người thân yêu!"
+            },
+            "NGỌC": {
+                poem: "Ngọc ngà thanh tú vẻ kiêu sa,\nTỏa sáng uyển chuyển giữa ngàn hoa.\nTháng ba kính chúc Ngọc luôn đẹp,\nTrọn đời ấm áp mãi tươi hoa.",
+                wish: "Chúc Ngọc ngày Phụ nữ 8/3 luôn lấp lánh như viên ngọc quý, xinh đẹp, bình an và luôn gặt hái nhiều may mắn!"
+            },
+            "PHƯƠNG": {
+                poem: "Phương trời e ấp ngát hương hoa,\nNét đẹp hiền ngoan nụ đơm hoa.\nChúc Phương tràn ngập niềm hạnh phúc,\nNụ cười rạng rỡ trọn mai sau.",
+                wish: "Chúc Phương ngày 8/3 ngập tràn hoa tươi, lời chúc ngọt ngào và luôn vui vẻ, may mắn trong công việc lẫn cuộc sống!"
+            },
+            "PHỤNG": {
+                poem: "Phụng múa loan ca vẻ thướt tha,\nThanh cao nhân hậu thắm muôn nhà.\nTháng ba gửi tặng ngàn lời chúc,\nHạnh phúc bình an trọn tuổi xuân.",
+                wish: "Chúc Phụng 8/3 tràn đầy niềm vui, ngọt ngào, luôn xinh đẹp rạng ngời và gặt hái nhiều thành công mới!"
+            },
+            "QUỲNH": {
+                poem: "Quỳnh hoa e ấp tỏa hương đêm,\nDịu dàng thắm thiết nét dịu êm.\nChúc Quỳnh rạng rỡ ngày phụ nữ,\nHạnh phúc chan hòa trọn ấm êm.",
+                wish: "Chúc Quỳnh ngày 8/3 xinh đẹp thanh khiết như đóa hoa quỳnh, luôn yêu đời và gặp nhiều may mắn trong cuộc sống!"
+            },
+            "THẢO": {
+                poem: "Thảo hiền dịu ngọt nét nết na,\nThanh tú đoan trang ấm mọi nhà.\nTháng ba kính chúc Thảo luôn thắm,\nHạnh phúc trọn vẹn muôn mùa hoa.",
+                wish: "Chúc Thảo ngày 8/3 tràn đầy tiếng cười, luôn ngọt ngào, đảm đang và gặp trọn vẹn những điều tuyệt vời nhất!"
+            },
+            "THÙY": {
+                poem: "Thùy mị nết na vẻ dịu dàng,\nNụ cười e ấp đắm không gian.\nTháng ba tươi thắm ngàn tia nắng,\nChúc Thùy hạnh phúc trọn bình an.",
+                wish: "Chúc Thùy một ngày 8/3 thật nhiều niềm vui, luôn duyên dáng, đáng yêu và ngập tràn hạnh phúc bên người thân!"
+            },
+            "TÂM": {
+                poem: "Tâm hồn trong sáng tựa dòng sông,\nNét đẹp dịu dàng thắm má hồng.\nChúc Tâm tháng ba ngàn thương nhớ,\nCuộc đời như ý thỏa ước mong.",
+                wish: "Chúc Tâm ngày 8/3 luôn giữ trọn tấm lòng ấm áp, xinh đẹp, bình an và nhận được thật nhiều tình yêu thương!"
+            },
+            "TRÂN": {
+                poem: "Trân quý thanh cao nét ngọc ngà,\nDịu dàng xinh xắn rạng ngàn hoa.\nChúc Trân luôn giữ niềm vui mới,\nHạnh phúc ngọt ngào ấm mái nhà.",
+                wish: "Chúc Trân 8/3 ngọt ngào, rạng rỡ, luôn là bông hoa tỏa sắc hương và thành công rực rỡ trên con đường đã chọn!"
+            },
+            "THƯ": {
+                poem: "Thư thong e ấp nét thông minh,\nRạng rỡ nụ cười thắm vạn tình.\nTháng ba chúc Thư ngàn may mắn,\nRực rỡ tươi vui trọn hành trình.",
+                wish: "Chúc Thư một ngày 8/3 thật xinh đẹp, thông minh, bản lĩnh và luôn gặt hái nhiều thành tích rực rỡ!"
+            },
+            "TRANG": {
+                poem: "Trang đài đài xé vẻ đoan trang,\nNụ cười rạng rỡ thắm không gian.\nChúc Trang tháng ba ngàn hoa nở,\nHạnh phúc bình an trọn ấm an.",
+                wish: "Chúc Trang ngày 8/3 luôn tươi trẻ, kiều diễm, thành công và luôn tìm thấy niềm vui trong mỗi chặng đường!"
+            },
+            "UYÊN": {
+                poem: "Uyên bác thông minh nét dịu hiền,\nNụ cười thắm thiết tựa thần tiên.\nTháng ba gửi tặng Uyên niềm nhớ,\nTrọn đời hạnh phúc hết ưu phiền.",
+                wish: "Chúc Uyên ngày 8/3 ngập tràn may mắn, xinh đẹp dịu dàng và luôn tràn đầy cảm hứng ngọt ngào mỗi ngày!"
+            },
+            "VÂN": {
+                poem: "Vân mây e ấp lướt tầng không,\nNét đẹp mĩ miều thắm má hồng.\nTháng ba kính chúc Vân luôn thắm,\nHạnh phúc đong đầy thỏa ước mong.",
+                wish: "Chúc Vân ngày Phụ nữ 8/3 thật nhẹ nhàng, bình an, tràn ngập tình yêu thương và xinh đẹp như những mây hồng!"
+            },
+            "YẾN": {
+                poem: "Yến xinh chao cánh đón xuân sang,\nNụ cười rạng rỡ thắm không gian.\nTháng ba gửi trọn muôn thương nhớ,\nChúc Yến bình an trọn giấc vàng.",
+                wish: "Chúc Yến ngày 8/3 luôn rạng rỡ như chim yến mùa xuân, xinh đẹp, tự tin và ngập tràn hạnh phúc ngọt ngào!"
+            },
+            "Ý": {
+                poem: "Ý như ước nguyện thắm ngày xuân,\nNét đẹp dịu dàng dạ trong ngần.\nTháng ba trao trọn ngàn lời chúc,\nHạnh phúc vẹn toàn muôn ân cần.",
+                wish: "Chúc Ý ngày 8/3 vạn sự như ý, luôn mỉm cười tự tin, xinh đẹp và gặt hái muôn vàn may mắn!"
+            }
+        };
+
+        // Fallback Poem Template for standard female names not explicitly listed
+        const DEFAULT_POEM_TEMPLATE = (name) => ({
+            poem: `${name} ơi e ấp nét xuân sang,\nNụ cười rạng rỡ thắm không gian.\nTháng ba kính chúc ngàn hoa nở,\nHạnh phúc bình an trọn giấc vàng.`,
+            wish: `Chúc ${name} một ngày Phụ nữ 8/3 thật xinh đẹp, rạng rỡ, luôn tràn đầy năng lượng tích cực và nhận được muôn vàn yêu thương!`
+        });
+
+        // Comprehensive database of common female names in Vietnam for detection validation
+        const KNOWN_FEMALE_NAMES = new Set([
+            "AN", "BÍCH", "GIANG", "HÂN", "KIM", "NGUYÊN", "NGÂN", "NHI", "NGỌC", "PHƯƠNG", "PHỤNG", 
+            "QUỲNH", "THẢO", "THÙY", "TÂM", "TRÂN", "THƯ", "TRANG", "UYÊN", "VÂN", "YẾN", "Ý",
+            "MAI", "LAN", "CÚC", "TRÚC", "HOA", "HƯƠNG", "HÀ", "LINH", "TRANG", "LY", "LYN", "LIÊN", 
+            "LOAN", "PHÚC", "HẰNG", "HẢI", "DUNG", "DUYÊN", "HIỀN", "HÒA", "HỒNG", "HUỆ", "HUYỀN", 
+            "KHÁNH", "KHOA", "KHUÊ", "LÂM", "MI", "MY", "MINH", "NGA", "NHƯ", "NHUNG", "OANH", "CẨM",
+            "QUYÊN", "THU", "THỦY", "THƯƠNG", "TIÊN", "TRINH", "TUYẾT", "VI", "VY", "XUÂN", "YẾN"
+        ]);
+
+        /* ==================== 2. VIETNAMESE NAME EXTRACTION ENGINE ==================== */
+
+        // Helper: Remove Vietnamese Tones/Diacritics for normalization
+        function removeVietnameseTones(str) {
+            str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+            str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+            str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+            str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+            str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+            str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+            str = str.replace(/đ/g, "d");
+            str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+            str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+            str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+            str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+            str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+            str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+            str = str.replace(/Đ/g, "D");
+            return str;
+        }
+
+        /**
+         * Extracts main last token/first name intelligently
+         * e.g., "Trần Thị Thanh Yến" -> "Yến"
+         * "Nguyen Thi Bích" -> "Bích"
+         */
+        function extractMainName(fullName) {
+            if (!fullName) return "";
+            // Clean strings
+            let cleaned = fullName.trim().replace(/\s+/g, ' ');
+            let words = cleaned.split(' ');
+            
+            // Get last word (main given name in Vietnamese culture)
+            let rawMainName = words[words.length - 1];
+            
+            // Handle edge cases like "Bích (Bích )" -> remove brackets
+            rawMainName = rawMainName.replace(/[()]/g, '');
+            
+            return rawMainName;
+        }
+
+        // Capitalize first letter neatly
+        function formatCapitalize(str) {
+            if (!str) return "";
+            return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+        }
+
+        /* ==================== 3. DOM & UI LOGIC ==================== */
+
+        let currentFemaleName = "";
+        let currentWishData = null;
+        let isEnvelopeOpened = false;
+
+        // On Input Change -> Show/Hide Clear button
+        document.getElementById('user-name-input').addEventListener('input', function(e) {
+            const clearBtn = document.getElementById('clear-btn');
+            if (e.target.value.length > 0) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+        });
+
+        function clearInput() {
+            const input = document.getElementById('user-name-input');
+            input.value = "";
+            document.getElementById('clear-btn').classList.add('hidden');
+            input.focus();
+        }
+
+        function fillQuickName(name) {
+            const input = document.getElementById('user-name-input');
+            input.value = name;
+            document.getElementById('clear-btn').classList.remove('hidden');
+        }
+
+        // Form Submit Handler
+        function handleNameSubmit(event) {
+            event.preventDefault();
+            const rawInput = document.getElementById('user-name-input').value;
+            if (!rawInput.trim()) return;
+
+            const mainName = extractMainName(rawInput);
+            const normalizedMainName = removeVietnameseTones(mainName).toUpperCase();
+
+            // Check if name is recognized as female
+            let matchedKey = null;
+
+            // Search in our primary DB keys
+            for (let key in FEMALE_POEM_DATABASE) {
+                if (removeVietnameseTones(key) === normalizedMainName) {
+                    matchedKey = key;
+                    break;
+                }
+            }
+
+            // Check in broader set
+            let isFemale = matchedKey !== null || KNOWN_FEMALE_NAMES.has(normalizedMainName);
+
+            if (isFemale) {
+                // Formatting nicely
+                currentFemaleName = formatCapitalize(mainName);
+                
+                // Fetch Poem & Wish Data
+                if (matchedKey && FEMALE_POEM_DATABASE[matchedKey]) {
+                    currentWishData = FEMALE_POEM_DATABASE[matchedKey];
+                } else {
+                    currentWishData = DEFAULT_POEM_TEMPLATE(currentFemaleName);
+                }
+
+                // Proceed to Screen 2
+                transitionToLetter();
+            } else {
+                // Show friendly modal for unrecognized / male name
+                showModal();
+            }
+        }
+
+        /* Transition to Envelope Screen */
+        function transitionToLetter() {
+            const screenInput = document.getElementById('screen-input');
+            const screenLetter = document.getElementById('screen-letter');
+
+            screenInput.classList.add('opacity-0', '-translate-y-4');
+            
+            setTimeout(() => {
+                screenInput.classList.add('hidden');
+                screenLetter.classList.remove('hidden');
+                screenLetter.classList.add('flex');
+                
+                // Populate Preview Name
+                document.getElementById('preview-name').innerText = `Dành tặng ${currentFemaleName}`;
+                document.getElementById('display-female-name').innerText = currentFemaleName;
+                document.getElementById('display-poem').innerText = currentWishData.poem;
+                document.getElementById('display-wish').innerText = currentWishData.wish;
+
+                // Reset envelope state
+                isEnvelopeOpened = false;
+                document.getElementById('envelope-elem').classList.remove('open');
+                document.getElementById('envelope-stage').classList.remove('hidden');
+                document.getElementById('letter-content-card').classList.add('hidden', 'opacity-0');
+            }, 400);
+        }
+
+        /* Open Envelope Animation & Confetti Trigger */
+        function openEnvelope() {
+            if (isEnvelopeOpened) return;
+            isEnvelopeOpened = true;
+
+            const envelope = document.getElementById('envelope-elem');
+            envelope.classList.add('open');
+
+            // Play music if allowed/not playing
+            playMusicSoftly();
+
+            // Trigger Confetti fireworks!
+            triggerConfetti();
+
+            // Transition to full card view
+            setTimeout(() => {
+                const letterCard = document.getElementById('letter-content-card');
+                letterCard.classList.remove('hidden');
+                setTimeout(() => {
+                    letterCard.classList.remove('opacity-0');
+                    letterCard.classList.add('opacity-100');
+                }, 50);
+            }, 800);
+        }
+
+        /* Reset App back to Input Screen */
+        function resetApp() {
+            const screenInput = document.getElementById('screen-input');
+            const screenLetter = document.getElementById('screen-letter');
+
+            screenLetter.classList.add('opacity-0');
+            setTimeout(() => {
+                screenLetter.classList.add('hidden');
+                screenLetter.classList.remove('flex', 'opacity-0');
+
+                screenInput.classList.remove('hidden', 'opacity-0', '-translate-y-4');
+                document.getElementById('user-name-input').value = "";
+                document.getElementById('clear-btn').classList.add('hidden');
+            }, 400);
+        }
+
+        /* Modal Dialog Controls */
+        function showModal() {
+            const modal = document.getElementById('alert-modal');
+            const modalCard = document.getElementById('modal-card');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalCard.classList.remove('scale-90');
+                modalCard.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('alert-modal');
+            const modalCard = document.getElementById('modal-card');
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-90');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        /* ==================== 4. CONFETTI & PARTICLES ==================== */
+
+        function triggerConfetti() {
+            if (typeof confetti === 'function') {
+                // Multi-stage confetti burst
+                const duration = 3 * 1000;
+                const animationEnd = Date.now() + duration;
+
+                const interval = setInterval(function() {
+                    const timeLeft = animationEnd - Date.now();
+
+                    if (timeLeft <= 0) {
+                        return clearInterval(interval);
+                    }
+
+                    const particleCount = 40 * (timeLeft / duration);
+
+                    confetti({
+                        particleCount,
+                        startVelocity: 30,
+                        spread: 360,
+                        ticks: 60,
+                        origin: { x: Math.random(), y: Math.random() - 0.2 },
+                        colors: ['#E91E63', '#FF69B4', '#FFD1DC', '#D4AF37', '#FFF0F5']
+                    });
+                }, 250);
+            }
+        }
+
+        // Background floating heart particles
+        function createBackgroundParticles() {
+            const container = document.getElementById('particle-container');
+            const icons = ['fa-heart', 'fa-sparkles', 'fa-flower', 'fa-star'];
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'bg-particle text-brand-pink opacity-40';
+                
+                // Random position & timing
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${6 + Math.random() * 8}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                const icon = document.createElement('i');
+                icon.className = `fas ${icons[Math.floor(Math.random() * icons.length)]} text-${Math.floor(12 + Math.random() * 20)}px`;
+                
+                particle.appendChild(icon);
+                container.appendChild(particle);
+            }
+        }
+
+        /* ==================== 5. AUDIO MUSIC TOGGLE ==================== */
+
+        const audio = document.getElementById('bg-audio');
+        const musicToggle = document.getElementById('music-toggle');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = false;
+
+        function playMusicSoftly() {
+            if (!isPlaying) {
+                audio.volume = 0.4;
+                audio.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.className = "fas fa-music text-lg animate-spin text-brand-deep";
+                }).catch(err => {
+                    console.log("Audio autoplay restricted by browser.");
+                });
+            }
+        }
+
+        musicToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                musicIcon.className = "fas fa-music text-lg text-brand-pink";
+            } else {
+                audio.volume = 0.4;
+                audio.play();
+                isPlaying = true;
+                musicIcon.className = "fas fa-music text-lg animate-spin text-brand-deep";
+            }
+        });
+
+        /* ==================== 6. EXPORT / DOWNLOAD & COPY ==================== */
+
+        function copyWishText() {
+            const poem = document.getElementById('display-poem').innerText;
+            const wish = document.getElementById('display-wish').innerText;
+            const fullText = `🌸 Thiệp Chúc Mừng 8/3 Dành Tặng ${currentFemaleName} 🌸\n\n${poem}\n\n${wish}`;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(fullText).then(() => {
+                    showToast('Đã sao chép lời chúc!');
+                }).catch(() => {
+                    fallbackCopy(fullText);
+                });
+            } else {
+                fallbackCopy(fullText);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            showToast('Đã sao chép lời chúc!');
+        }
+
+        function downloadCard() {
+            showToast('Đang tạo hình ảnh thiệp...');
+            const cardElem = document.getElementById('card-to-export');
+            
+            if (typeof html2canvas === 'function') {
+                html2canvas(cardElem, {
+                    scale: 2,
+                    backgroundColor: '#FFF0F5',
+                    useCORS: true
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `Thiep_8-3_${currentFemaleName}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    showToast('Đã tải thiệp về máy thành công!');
+                }).catch(err => {
+                    console.error("Download error:", err);
+                    showToast('Không thể tạo hình ảnh, hãy thử chụp màn hình nhé!');
+                });
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Initialize Background Particles on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            createBackgroundParticles();
+        });
+    </script>
+</body>
+</html>
